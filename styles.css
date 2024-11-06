@@ -1,0 +1,569 @@
+body {
+  background: rgb(0, 0, 0);
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  position: relative;
+}
+
+ul,
+h1,
+h2,
+h3,
+p,
+div {
+  margin: 0;
+  padding: 0;
+}
+
+li::marker {
+  display: none;
+}
+
+.main {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 0.5rem;
+  overflow: hidden;
+}
+
+/* Här har jag röjt! */
+
+.split {
+  height: 100%;
+  width: 50%;
+  position: relative;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 250px;
+  overflow: hidden;
+  max-width: 50%;
+}
+
+.people {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  text-align: right;
+  left: -25px;
+  position: relative;
+  z-index: 99;
+}
+
+.about {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  text-align: left;
+  right: -0px;
+  position: absolute;
+}
+
+.abouttext {
+  max-width: 500px;
+  text-align: left;
+  padding-right: 0.5rem;
+  position: relative;
+  max-height: 300px;
+  
+}
+
+.infotext {
+  text-align: right;
+  padding-left: 0.5rem;
+}
+
+/* Och hit!  */
+
+/* Det här var något lagg som jag inte kunde lösa...
+
+.centered {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 35px;
+
+
+} */
+
+/* Här ändrar vi om vi vill eller inte vill se scrollbar */
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Här är det jävligt klurigt, eftersom med overflow:hidden så försvinner scrollbaren i videosarna, på bekostnad av att de inte croppas ordentligt av
+  overflow-x:hidden. Det är knepigt */
+
+/* This is the main container for the two sections */
+.section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: none !important;
+  margin: 0;
+  padding: none;
+  justify-content: right;
+}
+
+/* This is the left section */
+.left {
+  width: 100%;
+  z-index: 2;
+}
+
+/* This is the right section */
+.right {
+  width: 100%;
+  z-index: 1;
+}
+
+.hidden {
+  display: none;
+}
+
+#contact {
+  margin-bottom: 30rem;
+}
+
+video {
+  cursor: pointer;
+
+  /* Olike resize-rutor för olika klipp, för mer kontrollstyrning. */
+}
+
+.resize3 {
+  object-fit: cover;
+  transform: scale(108%);
+  overflow: hidden;
+  width: 100%;
+}
+
+p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: white;
+  line-height: normal;
+  letter-spacing: 0px;
+  text-shadow: -8px 8px 20px rgba(255, 255, 255, 0);
+  text-align: right;
+  padding-bottom: 0px;
+}
+
+img {
+  background: rgba(255, 255, 255, 0);
+  height: 100px;
+  position: relative;
+  width: 100px;
+}
+
+@media (max-width: 767px) {
+  .split {
+    padding-top: 1.7rem;
+  }
+  p,
+  h1 {
+    margin-right: 0.75rem;
+  }
+
+  .left {
+    margin-top: -5rem;
+  }
+
+  .videoinfo {
+    margin-bottom: 0.5rem;
+  }
+  #contact {
+    margin-bottom: 60rem;
+  }
+  
+
+  .logoDesktop {
+    display: none;
+    width: 25px;
+    height: auto;
+  }
+
+  header {
+    position: fixed;
+    bottom: 0;
+    overflow: hidden;
+    width: 100%;
+    max-height: 2rem;
+    z-index: 9;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 1;
+    grid-template-areas: "h2 a";
+    background: black;
+    align-items: center;
+  }
+
+  header h2 {
+    grid-area: h2;
+    justify-self: start;
+    padding-left: 0.75rem;
+    padding-bottom: 0.75rem;
+    padding-top: 0.3rem;
+    font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  header a {
+    grid-area: a;
+    justify-self: end;
+    padding-right: 0.75rem;
+    padding-bottom: 0.75rem;
+    padding-top: 0.3rem;
+    font-size: 18px;
+    white-space: nowrap;
+  }
+
+  /* Hvis du slår det her til så ændres aspect ratio på mobile. */
+  .trigger-modal,
+  .feature-video {
+    aspect-ratio: 3/1 !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  /* Hvis du slår det her fra så undgår du gaps på mobile */
+  /* .list-item:first-of-type {
+        margin-top: 6rem;
+      }
+  
+      .list-item {
+        padding-bottom:6rem;
+      }
+      
+      */
+}
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 14px;
+  }
+
+  .main {
+    align-items: flex-end;
+    flex-direction: row;
+    justify-content: right;
+  }
+  /* On larger screens, make the left section 50% of the width */
+  .left {
+    width: 50%;
+    margin-right: 1.7rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .section {
+    width: 50%;
+  }
+
+  header {
+    display: flex;
+    flex-direction: column;
+    left: 1rem;
+    top: 1rem;
+    position: fixed;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    z-index: 999;
+  }
+
+  header h2 {
+    font-size: 18px;
+    height: 21px;
+  }
+
+  header a {
+    font-size: 18px;
+    height: 21px;
+  }
+  .alignment {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  h2.alignment {
+    display: none;
+  }
+
+  .logoMobile {
+    display: none;
+  }
+
+  .logoDesktop {
+    width: 240px;
+    height: auto;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .left {
+    width: 50%;
+    margin-right: 3rem;
+    padding-bottom: 1rem;
+  }
+}
+
+header * {
+  width: fit-content;
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  text-align: right;
+  color: white;
+  font-weight: normal;
+}
+
+h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: lighter;
+  color: rgb(255, 255, 255);
+  column-count: 2;
+  column-rule-color: white;
+  column-rule-width: 1px;
+  letter-spacing: 0px;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0);
+  padding: 0;
+  margin: 0;
+}
+
+div {
+  line-height: normal;
+  overflow: hidden;
+  color: white;
+}
+
+a {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  color: white;
+  text-decoration: none;
+}
+
+/* 
+ul:hover li {
+  opacity: 0.5;
+  filter: blur(1px);
+  transition: ease 0.5s;
+}
+
+ul li:hover {
+  opacity: 1;
+  filter: blur(0px);
+}
+
+ul section:left:hover {
+  opacity: 1 !important;
+  filter: blur(0px) !important;
+} */
+
+.fade-in {
+  animation: fadeIn ease 1s;
+  -webkit-animation: fadeIn ease 1s;
+  -moz-animation: fadeIn ease 1s;
+  -o-animation: fadeIn ease 1s;
+  -ms-animation: fadeIn ease 1s;
+  position: relative;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-filter: blur(5px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-filter: blur(0px);
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* oscars css */
+
+.list-item:first-of-type {
+  margin-top: none;
+}
+
+.list-item {
+  margin: 0;
+  padding: 0;
+}
+
+.list-item {
+  opacity: 0.5;
+  filter: blur(1px);
+  transition: ease 0.5s;
+}
+
+.list-item:last-of-type {
+  margin-bottom: 15rem;
+}
+
+@media screen and (max-width: 767px) {
+  .list-item:last-of-type {
+    margin-bottom: 2rem;
+  }
+}
+
+
+
+.sharp {
+  opacity: 1;
+  filter: blur(0px);
+}
+
+.container {
+  position: relative;
+}
+
+.modal {
+  background-color: rgba(0, 0, 0, 1);
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+}
+
+.modal-content {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  max-width: 100%;
+  transform: translate(-50%, -50%);
+}
+
+.modal-closer {
+  color: #fff;
+  cursor: pointer;
+  font-size: 3rem;
+  top: 1rem;
+  right: 2rem;
+  position: absolute;
+  z-index: 99;
+  line-height: 0.5;
+}
+
+.modal-video {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  max-width: 100%;
+  transform: translate(-50%, -50%);
+}
+
+.trigger-modal {
+  display: flex;
+  width: 100%;
+  padding-top: 56.25%;
+  position: relative;
+}
+
+.feature-video {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+}
+
+/* Add styles for the modal */
+.fullscreen-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Add styles for the iframe */
+.fullscreen-modal iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Add styles for the close button */
+.fullscreen-modal .close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  color: #fff;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* Add hover styles for the close button */
+.fullscreen-modal .close:hover {
+  color: #ccc;
+}
+
+html {
+  scroll-behavior: smooth;
+}
