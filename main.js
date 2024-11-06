@@ -90,3 +90,23 @@ triggerModals.forEach(triggerModal => {
     });
   });
 });
+
+// document.addEventListener('DOMContentLoaded', function() {
+//   const videos = document.querySelectorAll('video');
+  
+  
+//   videos.forEach(video => {
+//     video.play().catch(function(error) {
+//       console.log("Video play failed:", error);
+//     });
+//   });
+
+  
+//   document.body.addEventListener('touchstart', function() {
+//     videos.forEach(video => {
+//       video.play().catch(function(error) {
+//         console.log("Video play failed after touch:", error);
+//       });
+//     });
+//   }, { once: true });
+// });

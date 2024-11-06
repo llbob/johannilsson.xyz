@@ -59,7 +59,13 @@ li::marker {
   right: -0px;
   position: absolute;
 }
-
+.portrait {
+  width: 100%;
+  max-width: 160px;
+  height: auto;
+  bottom: 0;
+  right: 0;
+}
 .abouttext {
   max-width: 500px;
   text-align: left;
@@ -178,6 +184,9 @@ img {
     margin-bottom: 60rem;
   }
   
+  .portrait {
+    max-width: 120px;
+  }
 
   .logoDesktop {
     display: none;
